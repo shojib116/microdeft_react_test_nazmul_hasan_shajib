@@ -6,55 +6,11 @@ export default function AddProductPage() {
   return (
     <div className="container space-y-8">
       <h1 className="text-3xl">Add New Product</h1>
-      <form action={addProduct} className="space-y-6">
-        <div className="space-y-2">
-          <label className="font-medium" htmlFor="title">
-            Title
-          </label>
-          <br />
-          <input
-            type="text"
-            name="title"
-            id="title"
-            className="border-2 border-black rounded-lg w-full p-2"
-          />
-        </div>
-        <div className="space-y-2">
-          <label className="font-medium" htmlFor="stock">
-            Stock
-          </label>
-          <br />
-          <input
-            type="number"
-            name="stock"
-            id="stock"
-            className="border-2 border-black rounded-lg w-full p-2"
-          />
-        </div>
-        <div className="space-y-2">
-          <label className="font-medium" htmlFor="price">
-            Price
-          </label>
-          <br />
-          <input
-            type="number"
-            name="price"
-            id="price"
-            className="border-2 border-black rounded-lg w-full p-2"
-          />
-        </div>
-        <div className="space-y-2">
-          <label className="font-medium" htmlFor="discount">
-            Discount
-          </label>
-          <br />
-          <input
-            type="number"
-            name="discount"
-            id="discount"
-            className="border-2 border-black rounded-lg w-full p-2"
-          />
-        </div>
+      <form action={addProduct} className="space-y-6 lg:w-1/2">
+        <InputGroup name="title" label="Title" type="text" />
+        <InputGroup name="stock" label="Stock" type="number" />
+        <InputGroup name="price" label="Price" type="number" />
+        <InputGroup name="discount" label="Discount" type="number" />
         <div>
           <input
             type="text"
@@ -72,6 +28,31 @@ export default function AddProductPage() {
           Submit
         </button>
       </form>
+    </div>
+  );
+}
+
+function InputGroup({
+  name,
+  label,
+  type,
+}: {
+  name: string;
+  label: string;
+  type: string;
+}) {
+  return (
+    <div className="space-y-2">
+      <label className="font-medium" htmlFor={name}>
+        {label}
+      </label>
+      <br />
+      <input
+        type={type}
+        name={name}
+        id={name}
+        className="border-2 border-black rounded-lg w-full p-2"
+      />
     </div>
   );
 }
