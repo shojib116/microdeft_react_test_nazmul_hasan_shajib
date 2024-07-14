@@ -24,10 +24,13 @@ export default async function Home() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 space-x-8 space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product: product) => {
           return (
-            <div key={product.id} className="border rounded-lg space-y-4">
+            <div
+              key={product.id}
+              className="border rounded-lg space-y-4 h-full w-full max-w-xs"
+            >
               <div>
                 <img
                   src={product.image}
@@ -40,7 +43,7 @@ export default async function Home() {
                 <div className="text-sm">
                   <span className="font-semibold">{product.payable_price}</span>{" "}
                   <del className="text-gray-400">{product.price}</del>{" "}
-                  <span className="border rounded-md p-1 bg-green-300 font-medium ">
+                  <span className="border rounded-md p-1 bg-green-300 font-medium">
                     {discountPercentage(product.discount, product.price)}%
                   </span>
                 </div>
